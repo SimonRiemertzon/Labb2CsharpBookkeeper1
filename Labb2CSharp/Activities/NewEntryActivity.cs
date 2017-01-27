@@ -20,7 +20,6 @@ namespace Labb2CSharp
         {
             base.OnCreate(savedInstanceState);
             SetContentView(Resource.Layout.NewEntryLo);
-            // Create your application here
         }
     }
 }
