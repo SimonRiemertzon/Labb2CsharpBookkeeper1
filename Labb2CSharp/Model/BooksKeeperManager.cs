@@ -9,6 +9,7 @@ namespace Labb2CSharp
     public class BooksKeeperManager
     {
 
+
         //Lists
         List<Entry> allEntries = new List<Entry>();
         List<Account> incomeAccounts = new List<Account>();

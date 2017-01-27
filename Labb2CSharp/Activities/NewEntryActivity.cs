@@ -13,13 +13,13 @@ using Android.Widget;
 
 namespace Labb2CSharp
 {
-    [Activity(Label = "NewEntryActivity")]
+    [Activity(Label = "Ny Händelse")]
     public class NewEntryActivity : Activity
     {
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
-
+            SetContentView(Resource.Layout.NewEntryLo);
             // Create your application here
         }
     }
