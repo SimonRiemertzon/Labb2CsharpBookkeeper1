@@ -1,0 +1,20 @@
+﻿using System;
+namespace Labb2CSharp
+{
+    public class Account
+    {
+        public int ID { get; set; }
+        public string name { get; set; }
+
+        //public int debet { get; set; }
+        //public int credit { get; set; }
+
+
+        public Account(int id, string n)
+        {
+            ID = id;
+            name = n;
+
+        }
+    }
+}

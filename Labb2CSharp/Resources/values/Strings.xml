@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<string name="hello">Hello World, Click Me!</string>
+	<string name="app_name">Bookeeper</string>
+	<string name="new_entry_btn_txt">Ny Händelse</string>
+	<string name="show_all_entrys_txt">Visa Alla Händelser</string>
+	<string name="create_report_txt">Skapa Rapport</string>
+</resources>
