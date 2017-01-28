@@ -10,4 +10,9 @@
 	<string name="income_txt">Inkomst</string>
 	<string name="date_hint">Datum</string>
 	<string name="description_hint">Beskrivning</string>
+	<string name="type_txt">Typ: </string>
+	<string name="to_from_account_txt">Till/Från konto</string>
+	<string name="total_amount_hint">Totalt Belopp (inkl.moms):</string>
+	<string name="tax_spinner_txt">Moms: </string>
+	<string name="create_entry">Skapa händelse</string>
 </resources>

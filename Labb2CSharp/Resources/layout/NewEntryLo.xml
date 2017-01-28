@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingRight="10sp"
+    android:paddingLeft="10sp">
+    <LinearLayout
+        android:id="@+id/top_radiogroup_llo"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="20sp"
+        android:minWidth="25px"
+        android:minHeight="25px">
+        <RadioGroup
+            android:minWidth="25px"
+            android:minHeight="25px"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/radioGroup1">
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="true"
+                android:text="@string/income_txt"
+                android:id="@+id/radioButton1" />
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/expenses_txt"
+                android:id="@+id/radioButton2" />
+        </RadioGroup>
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/info_fields_llo"
+        android:layout_below="@+id/top_radiogroup_llo"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:minWidth="25px"
+        android:minHeight="25px">
+        <EditText
+            android:id="@+id/date_edittext"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/date_hint" />
+        <EditText
+            android:id="@+id/description"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/description_hint" />
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/spinner_type_llo"
+        android:layout_below="@id/info_fields_llo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginLeft="5sp">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/type_txt"
+            android:textSize="17sp"
+            android:layout_marginRight="10sp" />
+        <Spinner
+            android:id="@+id/type_spinner"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:spinnerMode="dialog" />
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/spinner_account_llo"
+        android:layout_below="@id/spinner_type_llo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingTop="10sp">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/to_from_account_txt"
+            android:textSize="16sp"
+            android:layout_marginRight="10sp"
+            android:layout_marginLeft="5sp" />
+        <Spinner
+            android:id="@+id/account_spinner"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:spinnerMode="dialog" />
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/bottom_info_field"
+        android:layout_below="@id/spinner_account_llo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <EditText
+            android:id="@+id/@+/total_amount_edittext"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:hint="@string/total_amount_hint" />
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/tax_spinner_llo"
+        android:layout_below="@id/bottom_info_field"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <Spinner
+            android:id="@+id/tax_spinner"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:spinnerMode="dialog" />
+    </LinearLayout>
+</RelativeLayout>

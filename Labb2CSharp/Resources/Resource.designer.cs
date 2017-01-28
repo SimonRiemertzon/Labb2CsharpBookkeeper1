@@ -44,6 +44,15 @@ namespace Labb2CSharp
 		public partial class Id
 		{
 			
+			// aapt resource value: 0x7f05000f
+			public const int @+/total_amount_edittext = 2131034127;
+			
+			// aapt resource value: 0x7f05000d
+			public const int account_spinner = 2131034125;
+			
+			// aapt resource value: 0x7f05000e
+			public const int bottom_info_field = 2131034126;
+			
 			// aapt resource value: 0x7f050002
 			public const int create_report = 2131034114;
 			
@@ -71,8 +80,23 @@ namespace Labb2CSharp
 			// aapt resource value: 0x7f050001
 			public const int show_all_entrys = 2131034113;
 			
+			// aapt resource value: 0x7f05000c
+			public const int spinner_account_llo = 2131034124;
+			
+			// aapt resource value: 0x7f05000a
+			public const int spinner_type_llo = 2131034122;
+			
+			// aapt resource value: 0x7f050011
+			public const int tax_spinner = 2131034129;
+			
+			// aapt resource value: 0x7f050010
+			public const int tax_spinner_llo = 2131034128;
+			
 			// aapt resource value: 0x7f050003
 			public const int top_radiogroup_llo = 2131034115;
+			
+			// aapt resource value: 0x7f05000b
+			public const int type_spinner = 2131034123;
 			
 			static Id()
 			{
@@ -125,6 +149,9 @@ namespace Labb2CSharp
 			// aapt resource value: 0x7f040001
 			public const int app_name = 2130968577;
 			
+			// aapt resource value: 0x7f04000d
+			public const int create_entry = 2130968589;
+			
 			// aapt resource value: 0x7f040004
 			public const int create_report_txt = 2130968580;
 			
@@ -148,6 +175,18 @@ namespace Labb2CSharp
 			
 			// aapt resource value: 0x7f040003
 			public const int show_all_entrys_txt = 2130968579;
+			
+			// aapt resource value: 0x7f04000c
+			public const int tax_spinner_txt = 2130968588;
+			
+			// aapt resource value: 0x7f04000a
+			public const int to_from_account_txt = 2130968586;
+			
+			// aapt resource value: 0x7f04000b
+			public const int total_amount_hint = 2130968587;
+			
+			// aapt resource value: 0x7f040009
+			public const int type_txt = 2130968585;
 			
 			static String()
 			{
