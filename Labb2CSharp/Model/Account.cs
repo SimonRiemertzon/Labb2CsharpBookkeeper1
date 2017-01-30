@@ -16,5 +16,11 @@ namespace Labb2CSharp
             name = n;
 
         }
+
+        public override string ToString()
+        {
+            return string.Format("{0} - {1}", name, ID);
+        }
     }
+
 }

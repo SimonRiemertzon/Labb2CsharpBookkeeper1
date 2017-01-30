@@ -15,4 +15,5 @@
 	<string name="total_amount_hint">Totalt Belopp (inkl.moms):</string>
 	<string name="tax_spinner_txt">Moms: </string>
 	<string name="create_entry">Skapa händelse</string>
+	<string name="tax">Moms: </string>
 </resources>

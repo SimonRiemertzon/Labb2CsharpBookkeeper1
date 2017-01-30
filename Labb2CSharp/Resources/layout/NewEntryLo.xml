@@ -23,13 +23,13 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:checked="true"
-                android:text="@string/income_txt"
-                android:id="@+id/radioButton1" />
+                android:text="@string/expenses_txt"
+                android:id="@+id/expense_radioButton" />
             <RadioButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/expenses_txt"
-                android:id="@+id/radioButton2" />
+                android:text="@string/income_txt"
+                android:id="@+id/income_radioButton" />
         </RadioGroup>
     </LinearLayout>
     <LinearLayout
@@ -96,7 +96,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
         <EditText
-            android:id="@+id/@+/total_amount_edittext"
+            android:id="@+id/total_amount_edittext"
             android:layout_height="wrap_content"
             android:layout_width="wrap_content"
             android:hint="@string/total_amount_hint" />
@@ -108,7 +108,11 @@
         android:layout_height="wrap_content">
         <TextView
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:text="@string/tax"
+            android:textSize="16sp"
+            android:layout_marginRight="10sp"
+            android:layout_marginLeft="5sp" />
         <Spinner
             android:id="@+id/tax_spinner"
             android:layout_width="wrap_content"
