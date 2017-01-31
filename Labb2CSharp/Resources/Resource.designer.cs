@@ -146,6 +146,9 @@ namespace Labb2CSharp
 		public partial class String
 		{
 			
+			// aapt resource value: 0x7f04000f
+			public const int add_entry_btn_txt = 2130968591;
+			
 			// aapt resource value: 0x7f040001
 			public const int app_name = 2130968577;
 			

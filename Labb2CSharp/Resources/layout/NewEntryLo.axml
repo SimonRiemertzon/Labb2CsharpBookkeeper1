@@ -106,7 +106,7 @@
         android:id="@+id/tax_spinner_llo"
         android:layout_below="@id/bottom_info_field"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="match_parent">
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -119,5 +119,14 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:spinnerMode="dialog" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_alignParentBottom="true">
+        <Button
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:text="@string/add_entry_btn_txt" />
     </LinearLayout>
 </RelativeLayout>

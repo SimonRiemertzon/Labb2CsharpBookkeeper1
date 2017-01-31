@@ -3,15 +3,27 @@ namespace Labb2CSharp
 {
     public class Entry
     {
-        public string entryID;
-        private double debet;
-        private double credit;
+        BooksKeeperManager bk = BooksKeeperManager.Instance;
+
+
+        public string entryID { get; set; }
+        public double dateOfEntry { get; set; }
+        public string typeOfEntry { get; set; }
+        public Account typeOfAccount { get; set; }
+        public Account toOrFromAccount { get; set; }
 
 
 
-        public Entry(string id)
+
+
+
+        public Entry(string id, double date, string typeEntry, Account typeAccount, Account toFromAccount)
         {
             entryID = id;
+            dateOfEntry = date;
+            typeOfEntry = typeEntry;
+            typeOfAccount = typeAccount;
+            toOrFromAccount = toFromAccount;
         }
 
 

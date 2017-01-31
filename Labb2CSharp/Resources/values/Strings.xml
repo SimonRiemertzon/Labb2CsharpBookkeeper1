@@ -16,4 +16,5 @@
 	<string name="tax_spinner_txt">Moms: </string>
 	<string name="create_entry">Skapa händelse</string>
 	<string name="tax">Moms: </string>
+	<string name="add_entry_btn_txt">Lägg till händelse</string>
 </resources>
