@@ -21,8 +21,10 @@ namespace Labb2CSharp
         BooksKeeperManager bk = BooksKeeperManager.Instance;
         Spinner spinnerType;
         Spinner spinnerAccount;
+        Spinner spinnerTaxRate;
         RadioButton radioSetExpense;
         RadioButton radioSetIncome;
+
 
         protected override void OnCreate(Bundle savedInstanceState)
         {
@@ -35,11 +37,13 @@ namespace Labb2CSharp
             radioSetIncome = FindViewById<RadioButton>(Resource.Id.income_radioButton);
             spinnerType = FindViewById<Spinner>(Resource.Id.type_spinner);
             spinnerAccount = FindViewById<Spinner>(Resource.Id.account_spinner);
+            spinnerTaxRate = FindViewById<Spinner>(Resource.Id.tax_spinner);
 
 
             //Setting up default spinners
             SetEntryModeToExpense();
             SetAccountSpinner();
+            SetTaxSpinner();
 
 
             //Clickmethods
@@ -77,6 +81,12 @@ namespace Labb2CSharp
             spinnerAccount.Adapter = adapter;
         }
 
+        private void SetTaxSpinner()
+        {
+            ArrayAdapter adapter = new ArrayAdapter(this, Android.Resource.Layout.SimpleSpinnerItem, bk.taxRates);
+            adapter.SetDropDownViewResource(Android.Resource.Layout.SimpleSpinnerDropDownItem);
+            spinnerTaxRate.Adapter = adapter;
+        }
 
 
     }

@@ -14,10 +14,10 @@ namespace Labb2CSharp
 
 
 
-        public List<Account> incomeAccounts { get; set; }
-        public List<Account> expenseAccounts { get; set; }
-        public List<Account> moneyAccounts { get; set; }
-        public List<TaxRate> taxRates { get; set; }
+        public List<Account> incomeAccounts { get; private set; }
+        public List<Account> expenseAccounts { get; private set; }
+        public List<Account> moneyAccounts { get; private set; }
+        public List<TaxRate> taxRates { get; private set; }
 
         private BooksKeeperManager()
         {
@@ -37,6 +37,7 @@ namespace Labb2CSharp
             //Taxrates
             TaxRate tr25 = new TaxRate(0.25);
             TaxRate tr12 = new TaxRate(0.12);
+            TaxRate tr6 = new TaxRate(0.06);
 
             //Implementing lists
             //Lists
@@ -45,7 +46,7 @@ namespace Labb2CSharp
             incomeAccounts = new List<Account> { a3000, a3040 };
             expenseAccounts = new List<Account> { a4010, a5010 };
             moneyAccounts = new List<Account> { a1930, a1250 };
-            taxRates = new List<TaxRate> { tr25, tr12 };
+            taxRates = new List<TaxRate> { tr25, tr12, tr6 };
 
         }
 

@@ -52,6 +52,7 @@
     <Compile Include="Model\BooksKeeperManager.cs" />
     <Compile Include="Activities\MainActivity.cs" />
     <Compile Include="Activities\NewEntryActivity.cs" />
+    <Compile Include="Resources\Resource.designer.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AboutResources.txt" />
