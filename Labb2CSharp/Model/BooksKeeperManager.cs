@@ -10,6 +10,7 @@ namespace Labb2CSharp
     {
 
         private static BooksKeeperManager instance;
+        public double numberOfEntries = 0;
 
 
 
@@ -73,11 +74,13 @@ namespace Labb2CSharp
 
 
 
+        public void addEntry(Account typeEntry, Account typeAccount, Account toFromAccount)
+        {
+            numberOfEntries++;
+            //Entry e = new Entry(string.Format("e{0}", numberOfEntries), );
+        }
 
 
 
-
-        //Addentry()
-        //
     }
 }

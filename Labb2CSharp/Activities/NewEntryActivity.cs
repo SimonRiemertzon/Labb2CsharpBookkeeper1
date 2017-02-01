@@ -39,7 +39,7 @@ namespace Labb2CSharp
             spinnerType = FindViewById<Spinner>(Resource.Id.type_spinner);
             spinnerAccount = FindViewById<Spinner>(Resource.Id.account_spinner);
             spinnerTaxRate = FindViewById<Spinner>(Resource.Id.tax_spinner);
-            addEntryBtn = FindViewById<Button>(Resource.Id.new_entry_btn);
+            addEntryBtn = FindViewById<Button>(Resource.Id.add_new_entry_btn);
 
 
             //Setting up default spinners
@@ -61,7 +61,11 @@ namespace Labb2CSharp
 
             addEntryBtn.Click += delegate
             {
-                Entry e = new Entry(; //Fortsättning följer här
+
+                bk.addEntry((Account)spinnerType.SelectedItem,
+                            (Account)spinnerAccount.SelectedItem,
+                            (Account)spinnerTaxRate.SelectedItem);
+
             };
 
 

@@ -1,7 +1,7 @@
 ﻿using System;
 namespace Labb2CSharp
 {
-    public class Account
+    public class Account : Java.Lang.Object
     {
         public int ID { get; set; }
         public string name { get; set; }

@@ -125,6 +125,7 @@
         android:layout_width="match_parent"
         android:layout_alignParentBottom="true">
         <Button
+            android:id="@+id/add_new_entry_btn"
             android:layout_height="wrap_content"
             android:layout_width="match_parent"
             android:text="@string/add_entry_btn_txt" />

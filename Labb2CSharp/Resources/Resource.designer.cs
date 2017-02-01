@@ -47,6 +47,9 @@ namespace Labb2CSharp
 			// aapt resource value: 0x7f05000d
 			public const int account_spinner = 2131034125;
 			
+			// aapt resource value: 0x7f050012
+			public const int add_new_entry_btn = 2131034130;
+			
 			// aapt resource value: 0x7f05000e
 			public const int bottom_info_field = 2131034126;
 			
