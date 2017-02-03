@@ -73,6 +73,9 @@ namespace Labb2CSharp
             };
 
 
+            spinnerTaxRate.ItemSelected += new EventHandler<AdapterView.ItemSelectedEventArgs>(TaxSelected);
+
+
         }
 
         private void SetEntryModeToExpense()
@@ -110,9 +113,9 @@ namespace Labb2CSharp
             {
                 TaxRate currentTaxrate = bk.taxRates[s.SelectedItemPosition];
                 int intTotalAmountInclusiveTax = Int32.Parse(totalAmount.Text);
-                double intTotalAmountExclusiveTax = intTotalAmountInclusiveTax * currentTaxrate.Percent;
+                double doubleTotalAmountExclusiveTax = intTotalAmountInclusiveTax * currentTaxrate.Percent;
 
-                tvExTax.Text = intTotalAmountExclusiveTax.ToString();
+                tvExTax.Text = doubleTotalAmountExclusiveTax.ToString();
 
             }
             else
