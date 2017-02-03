@@ -4,7 +4,7 @@ namespace Labb2CSharp
     public class Account : Java.Lang.Object
     {
         public int ID { get; set; }
-        public string name { get; set; }
+        public string Name { get; set; }
 
         //public int debet { get; set; }
         //public int credit { get; set; }
@@ -13,13 +13,13 @@ namespace Labb2CSharp
         public Account(int id, string n)
         {
             ID = id;
-            name = n;
+            Name = n;
 
         }
 
         public override string ToString()
         {
-            return string.Format("{0} - {1}", name, ID);
+            return string.Format("{0} - {1}", Name, ID);
         }
     }
 

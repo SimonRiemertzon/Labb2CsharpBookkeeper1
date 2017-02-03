@@ -91,7 +91,7 @@
             android:spinnerMode="dialog" />
     </LinearLayout>
     <LinearLayout
-        android:id="@+id/bottom_info_field"
+        android:id="@+id/lower_info_field_llo"
         android:layout_below="@id/spinner_account_llo"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
@@ -104,7 +104,7 @@
     </LinearLayout>
     <LinearLayout
         android:id="@+id/tax_spinner_llo"
-        android:layout_below="@id/bottom_info_field"
+        android:layout_below="@id/lower_info_field_llo"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
         <TextView
@@ -119,6 +119,18 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:spinnerMode="dialog" />
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/ex_tax_llo"
+        android:layout_below="@id/tax_spinner_llo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:id="@+id/ex_tax_tv"
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:hint="hej"
+            android:text="-" />
     </LinearLayout>
     <LinearLayout
         android:layout_height="wrap_content"

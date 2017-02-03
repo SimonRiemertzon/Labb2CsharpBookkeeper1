@@ -25,6 +25,9 @@ namespace Labb2CSharp
         RadioButton radioSetExpense;
         RadioButton radioSetIncome;
         Button addEntryBtn;
+        EditText totalAmount;
+        TextView tvExTax;
+
 
 
         protected override void OnCreate(Bundle savedInstanceState)
@@ -40,7 +43,8 @@ namespace Labb2CSharp
             spinnerAccount = FindViewById<Spinner>(Resource.Id.account_spinner);
             spinnerTaxRate = FindViewById<Spinner>(Resource.Id.tax_spinner);
             addEntryBtn = FindViewById<Button>(Resource.Id.add_new_entry_btn);
-
+            totalAmount = FindViewById<EditText>(Resource.Id.total_amount_edittext);
+            tvExTax = FindViewById<TextView>(Resource.Id.ex_tax_tv);
 
             //Setting up default spinners
             SetEntryModeToExpense();
@@ -99,6 +103,26 @@ namespace Labb2CSharp
             spinnerTaxRate.Adapter = adapter;
         }
 
+        private void TaxSelected(object sender, AdapterView.ItemSelectedEventArgs e)
+        {
+            Spinner s = (Spinner)sender;
+            if (!totalAmount.Text.Equals(""))
+            {
+                TaxRate currentTaxrate = bk.taxRates[s.SelectedItemPosition];
+                int intTotalAmountInclusiveTax = Int32.Parse(totalAmount.Text);
+                double intTotalAmountExclusiveTax = intTotalAmountInclusiveTax * currentTaxrate.Percent;
+
+                tvExTax.Text = intTotalAmountExclusiveTax.ToString();
+
+            }
+            else
+            {
+                tvExTax.Text = "-";
+            }
+
+
+
+        }
 
     }
 }

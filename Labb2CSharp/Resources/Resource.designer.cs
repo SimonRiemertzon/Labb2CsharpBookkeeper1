@@ -47,11 +47,8 @@ namespace Labb2CSharp
 			// aapt resource value: 0x7f05000d
 			public const int account_spinner = 2131034125;
 			
-			// aapt resource value: 0x7f050012
-			public const int add_new_entry_btn = 2131034130;
-			
-			// aapt resource value: 0x7f05000e
-			public const int bottom_info_field = 2131034126;
+			// aapt resource value: 0x7f050014
+			public const int add_new_entry_btn = 2131034132;
 			
 			// aapt resource value: 0x7f050002
 			public const int create_report = 2131034114;
@@ -62,6 +59,12 @@ namespace Labb2CSharp
 			// aapt resource value: 0x7f050009
 			public const int description = 2131034121;
 			
+			// aapt resource value: 0x7f050012
+			public const int ex_tax_llo = 2131034130;
+			
+			// aapt resource value: 0x7f050013
+			public const int ex_tax_tv = 2131034131;
+			
 			// aapt resource value: 0x7f050005
 			public const int expense_radioButton = 2131034117;
 			
@@ -70,6 +73,9 @@ namespace Labb2CSharp
 			
 			// aapt resource value: 0x7f050007
 			public const int info_fields_llo = 2131034119;
+			
+			// aapt resource value: 0x7f05000e
+			public const int lower_info_field_llo = 2131034126;
 			
 			// aapt resource value: 0x7f050000
 			public const int new_entry_btn = 2131034112;
