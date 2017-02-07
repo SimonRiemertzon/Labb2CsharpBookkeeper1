@@ -71,7 +71,7 @@
     <AndroidResource Include="Resources\mipmap-xxxhdpi\Icon.png" />
     <AndroidResource Include="Resources\layout\NewEntryLo.axml" />
     <AndroidResource Include="Resources\layout\AllEntrysLo.axml" />
-    <AndroidResource Include="Resources\layout\book_list_item.axml" />
+    <AndroidResource Include="Resources\layout\Entry_List_Item.axml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Resources\drawable\" />

@@ -41,7 +41,7 @@ namespace Labb2CSharp
             TaxRate tr6 = new TaxRate(0.06);
 
             //Implementing lists
-            allEntries = new List<Entry>();
+
 
             incomeAccounts = new List<Account> { a3000, a3040 };
             expenseAccounts = new List<Account> { a4010, a5010 };
@@ -77,6 +77,9 @@ namespace Labb2CSharp
         {
             numberOfEntries++;
             //Entry e = new Entry(string.Format("e{0}", numberOfEntries), );
+
+            //När jag skapar en händelse måste den läggas till listan av entrys! Detta måste skrivas innan min "Allentrys kommer funka"
+
         }
 
 

@@ -5,6 +5,8 @@ using Android.Views;
 using Android.Widget;
 using Java.Lang;
 
+
+
 namespace Labb2CSharp
 {
     public class EntryAdapter : BaseAdapter
@@ -38,9 +40,14 @@ namespace Labb2CSharp
 
         public override View GetView(int position, View convertView, ViewGroup parent)
         {
-            View view = context.LayoutInflater.Inflate(Resource.Layout.book_list_item, parent, false);
+            View view = convertView ?? context.LayoutInflater.Inflate(Resource.Layout.Entry_List_Item, parent, false);
 
-            view.FindViewById<TextView>(Resource.Id.
+            view.FindViewById<TextView>(Resource.Id.entryID_tv).Text = entrys[position].EntryID;
+            view.FindViewById<TextView>(Resource.Id.entryID_tv).Text = entrys[position].DateOfEntry + "";
+            view.FindViewById<TextView>(Resource.Id.entryID_tv).Text = entrys[position].TypeOfEntry;
+
+
+            return view;
 
         }
     }
