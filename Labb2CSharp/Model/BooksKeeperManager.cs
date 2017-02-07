@@ -14,7 +14,7 @@ namespace Labb2CSharp
 
 
 
-
+        private List<Entry> allEntries { get { return allEntries; } }
         public List<Account> incomeAccounts { get; private set; }
         public List<Account> expenseAccounts { get; private set; }
         public List<Account> moneyAccounts { get; private set; }
@@ -41,8 +41,7 @@ namespace Labb2CSharp
             TaxRate tr6 = new TaxRate(0.06);
 
             //Implementing lists
-            //Lists
-            // List<Entry> allEntries = new List<Entry>();
+            allEntries = new List<Entry>();
 
             incomeAccounts = new List<Account> { a3000, a3040 };
             expenseAccounts = new List<Account> { a4010, a5010 };
