@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using Java.Util;
+using SQLite;
 
 namespace Labb2CSharp
 {
@@ -10,11 +11,11 @@ namespace Labb2CSharp
     {
 
         private static BooksKeeperManager instance;
-        public double numberOfEntries = 0;
+        private double numberOfEntries = 0;
 
 
 
-        private List<Entry> allEntries { get { return allEntries; } }
+        public List<Entry> allEntries { get; private set; }
         public List<Account> incomeAccounts { get; private set; }
         public List<Account> expenseAccounts { get; private set; }
         public List<Account> moneyAccounts { get; private set; }
@@ -36,17 +37,21 @@ namespace Labb2CSharp
             Account a1250 = new Account(1250, "Datorer");
 
             //Taxrates
-            TaxRate tr25 = new TaxRate(0.25);
-            TaxRate tr12 = new TaxRate(0.12);
-            TaxRate tr6 = new TaxRate(0.06);
+            TaxRate tr25 = new TaxRate(1, 0.25);
+            TaxRate tr12 = new TaxRate(2, 0.12);
+            TaxRate tr6 = new TaxRate(3, 0.06);
 
             //Implementing lists
 
-
+            allEntries = new List<Entry> { };
             incomeAccounts = new List<Account> { a3000, a3040 };
             expenseAccounts = new List<Account> { a4010, a5010 };
             moneyAccounts = new List<Account> { a1930, a1250 };
             taxRates = new List<TaxRate> { tr25, tr12, tr6 };
+
+            //Implementing Database
+            string pathToDB = System.Environment.GetFolderPath(Environment.SpecialFolder.Personal);
+            SQLiteConnection db = new SQLiteConnection(pathToDB + @"\database.db");
 
         }
 
@@ -73,9 +78,19 @@ namespace Labb2CSharp
 
 
 
-        public void addEntry(Account typeEntry, Account typeAccount, Account toFromAccount)
+        public void addEntry(bool expenseEntry,
+                             Account typeEntry,
+                             String date,
+                             Account toFromAccount,
+                             TaxRate tr)
         {
             numberOfEntries++;
+            Entry e = new Entry(numberOfEntries.ToString(),
+                                date,
+                                typeEntry,
+                                toFromAccount,
+                                tr);
+            allEntries.Add(e);
             //Entry e = new Entry(string.Format("e{0}", numberOfEntries), );
 
             //När jag skapar en händelse måste den läggas till listan av entrys! Detta måste skrivas innan min "Allentrys kommer funka"

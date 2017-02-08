@@ -7,8 +7,9 @@ namespace Labb2CSharp
 
 
         public string EntryID { get; set; }
-        public double DateOfEntry { get; set; }
+        public string DateOfEntry { get; set; }
         public string TypeOfEntry { get; set; }
+        public TaxRate EntryTaxRate { get; set; }
         public Account TypeOfAccount { get; set; }
         public Account ToOrFromAccount { get; set; }
 
@@ -17,13 +18,19 @@ namespace Labb2CSharp
 
 
 
-        public Entry(string id, double date, string typeEntry, Account typeAccount, Account toFromAccount)
+        public Entry(string id,
+                     string date,
+                     Account typeAccount,
+                     Account toFromAccount,
+                     TaxRate tr)
         {
             EntryID = id;
             DateOfEntry = date;
-            TypeOfEntry = typeEntry;
+            // TypeOfEntry = typeEntry;
             TypeOfAccount = typeAccount;
             ToOrFromAccount = toFromAccount;
+            EntryTaxRate = tr;
+
         }
 
 

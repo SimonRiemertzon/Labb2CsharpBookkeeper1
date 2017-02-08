@@ -14,7 +14,7 @@
             android:layout_margin="5sp"
             android:text="@string/new_entry_btn_txt" />
         <Button
-            android:id="@+id/show_all_entrys"
+            android:id="@+id/show_all_entrys_btn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="5sp"

@@ -20,13 +20,16 @@ namespace Labb2CSharp
     {
         BooksKeeperManager bk = BooksKeeperManager.Instance;
         Spinner spinnerType;
-        Spinner spinnerAccount;
+        Spinner spinnerToFromAccount;
         Spinner spinnerTaxRate;
         RadioButton radioSetExpense;
         RadioButton radioSetIncome;
         Button addEntryBtn;
         EditText totalAmount;
-        TextView tvExTax;
+        TextView exTaxTV;
+        EditText dateET;
+        bool expenseEntry = true;
+
 
 
 
@@ -40,11 +43,12 @@ namespace Labb2CSharp
             radioSetExpense = FindViewById<RadioButton>(Resource.Id.expense_radioButton);
             radioSetIncome = FindViewById<RadioButton>(Resource.Id.income_radioButton);
             spinnerType = FindViewById<Spinner>(Resource.Id.type_spinner);
-            spinnerAccount = FindViewById<Spinner>(Resource.Id.account_spinner);
+            spinnerToFromAccount = FindViewById<Spinner>(Resource.Id.account_spinner);
             spinnerTaxRate = FindViewById<Spinner>(Resource.Id.tax_spinner);
             addEntryBtn = FindViewById<Button>(Resource.Id.add_new_entry_btn);
             totalAmount = FindViewById<EditText>(Resource.Id.total_amount_edittext);
-            tvExTax = FindViewById<TextView>(Resource.Id.ex_tax_tv);
+            exTaxTV = FindViewById<TextView>(Resource.Id.ex_tax_tv);
+            dateET = FindViewById<EditText>(Resource.Id.date_edittext);
 
             //Setting up default spinners
             SetEntryModeToExpense();
@@ -66,9 +70,11 @@ namespace Labb2CSharp
             addEntryBtn.Click += delegate
             {
 
-                bk.addEntry((Account)spinnerType.SelectedItem,
-                            (Account)spinnerAccount.SelectedItem,
-                            (Account)spinnerTaxRate.SelectedItem);
+                bk.addEntry(expenseEntry,
+                            (Account)spinnerType.SelectedItem,
+                            dateET.Text.ToString(),
+                            (Account)spinnerToFromAccount.SelectedItem,
+                            (TaxRate)spinnerTaxRate.SelectedItem);
 
             };
 
@@ -87,6 +93,7 @@ namespace Labb2CSharp
 
         private void SetEntryModeToIncome()
         {
+            expenseEntry = false;
             ArrayAdapter adapter = new ArrayAdapter(this, Android.Resource.Layout.SimpleSpinnerItem, bk.incomeAccounts);
             adapter.SetDropDownViewResource(Android.Resource.Layout.SimpleSpinnerDropDownItem);
             spinnerType.Adapter = adapter;
@@ -96,7 +103,7 @@ namespace Labb2CSharp
         {
             ArrayAdapter adapter = new ArrayAdapter(this, Android.Resource.Layout.SimpleSpinnerItem, bk.moneyAccounts);
             adapter.SetDropDownViewResource(Android.Resource.Layout.SimpleSpinnerDropDownItem);
-            spinnerAccount.Adapter = adapter;
+            spinnerToFromAccount.Adapter = adapter;
         }
 
         private void SetTaxSpinner()
@@ -115,12 +122,12 @@ namespace Labb2CSharp
                 int intTotalAmountInclusiveTax = Int32.Parse(totalAmount.Text);
                 double doubleTotalAmountExclusiveTax = intTotalAmountInclusiveTax * currentTaxrate.Percent;
 
-                tvExTax.Text = doubleTotalAmountExclusiveTax.ToString();
+                exTaxTV.Text = doubleTotalAmountExclusiveTax.ToString();
 
             }
             else
             {
-                tvExTax.Text = "-";
+                exTaxTV.Text = "-";
             }
 
 

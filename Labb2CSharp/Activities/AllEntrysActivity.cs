@@ -28,7 +28,7 @@ namespace Labb2CSharp
             SetContentView(Resource.Layout.AllEntrysLo);
 
             entryList = FindViewById<ListView>(Resource.Id.all_entrys_list);
-            entryList.Adapter = new EntryAdapter(this, BooksKeeperManager.Instance.)
+            entryList.Adapter = new EntryAdapter(this, BooksKeeperManager.Instance.allEntries);
         }
     }
 }

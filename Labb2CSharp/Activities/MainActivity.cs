@@ -16,12 +16,21 @@ namespace Labb2CSharp
             SetContentView(Resource.Layout.Main);
 
             Button newEntryButton = FindViewById<Button>(Resource.Id.new_entry_btn);
+            Button allEntrysButton = FindViewById<Button>(Resource.Id.show_all_entrys_btn);
 
             newEntryButton.Click += delegate
             {
                 Intent i = new Intent(this, typeof(NewEntryActivity));
                 StartActivity(i);
             };
+
+            allEntrysButton.Click += delegate
+            {
+                Intent i = new Intent(this, typeof(AllEntrysActivity));
+                StartActivity(i);
+            };
+
+
 
 
         }
