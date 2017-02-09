@@ -12,7 +12,6 @@ namespace Labb2CSharp
     {
 
         private static BooksKeeperManager instance;
-        private double numberOfEntries = 0;
 
 
         private static string pathToDB = System.Environment.GetFolderPath(Environment.SpecialFolder.Personal);
@@ -31,7 +30,10 @@ namespace Labb2CSharp
 
             db.CreateTable<TaxRate>();
             db.CreateTable<Account>();
-            db.CreateTable<Entry>();
+            db.Close();
+
+            SQLiteConnection db1 = new SQLiteConnection(pathToDB + @"\datebase.db");
+            db1.CreateTable<Entry>();
 
 
             //Income Accounts

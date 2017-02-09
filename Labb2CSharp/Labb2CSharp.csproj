@@ -52,7 +52,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Model\Entry.cs" />
     <Compile Include="Model\Account.cs" />
     <Compile Include="Model\TaxRate.cs" />
     <Compile Include="Model\BooksKeeperManager.cs" />
@@ -61,6 +60,7 @@
     <Compile Include="Resources\Resource.designer.cs" />
     <Compile Include="Activities\AllEntrysActivity.cs" />
     <Compile Include="Model\EntryAdapter.cs" />
+    <Compile Include="Model\Entry.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AboutResources.txt" />
@@ -84,7 +84,6 @@
     <Folder Include="Resources\drawable\" />
     <Folder Include="Model\" />
     <Folder Include="Activities\" />
-    <Folder Include="New Folder\" />
   </ItemGroup>
   <ItemGroup>
     <XamarinComponentReference Include="sqlite-net">

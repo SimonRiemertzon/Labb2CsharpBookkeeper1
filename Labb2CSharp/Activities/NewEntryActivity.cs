@@ -1,9 +1,7 @@
 ﻿
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Text;
-
 using Android.App;
 using Android.Content;
 using Android.OS;
@@ -18,6 +16,7 @@ namespace Labb2CSharp
 
     public class NewEntryActivity : Activity
     {
+
         BooksKeeperManager bk = BooksKeeperManager.Instance;
         Spinner spinnerType;
         Spinner spinnerToFromAccount;

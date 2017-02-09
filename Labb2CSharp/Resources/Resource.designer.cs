@@ -63,7 +63,7 @@ namespace Labb2CSharp
 			public const int date_tv = 2131034114;
 			
 			// aapt resource value: 0x7f05000e
-			public const int description = 2131034126;
+			public const int description_edittext = 2131034126;
 			
 			// aapt resource value: 0x7f050003
 			public const int entryID_tv = 2131034115;
