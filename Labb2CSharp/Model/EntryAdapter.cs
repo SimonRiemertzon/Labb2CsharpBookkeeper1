@@ -40,7 +40,7 @@ namespace Labb2CSharp
 
             view.FindViewById<TextView>(Resource.Id.entryID_tv).Text = "Händelse ID: " + entrys[position].EntryID;
             view.FindViewById<TextView>(Resource.Id.date_tv).Text = "Datum : " + entrys[position].DateOfEntry + "";
-            view.FindViewById<TextView>(Resource.Id.typeAccounts_tv).Text = "Typ av händelse: " + entrys[position].TypeOfEntry;
+            //view.FindViewById<TextView>(Resource.Id.typeAccounts_tv).Text = "Typ av händelse: " + entrys[position].TypeOfEntry;
 
 
             return view;

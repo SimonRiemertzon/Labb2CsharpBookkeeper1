@@ -30,10 +30,10 @@ namespace Labb2CSharp
 
             db.CreateTable<TaxRate>();
             db.CreateTable<Account>();
-            db.Close();
 
-            SQLiteConnection db1 = new SQLiteConnection(pathToDB + @"\datebase.db");
-            db1.CreateTable<Entry>();
+
+
+            db.CreateTable<Entry>();
 
 
             //Income Accounts
@@ -90,12 +90,14 @@ namespace Labb2CSharp
             Entry entry = new Entry {
                 ExpenseEntry = expenseEntry,
                 DateOfEntry = date,
-                Description = description,
-                TotalAmount = totalAmount,
-                TypeOfEntry = typeOfEntry,
-                ToOrFromAccount = toFromAccount,
-                EntryTaxRate = tr
+                //   Description = description,
+                //  TotalAmount = totalAmount,
+                //TypeOfEntry = typeOfEntry,
+                // ToOrFromAccount = toFromAccount,
+                // EntryTaxRate = tr
+
             };
+
             SQLiteConnection db = new SQLiteConnection(pathToDB + @"\database.db");
             db.Insert(entry);
             db.Close();
