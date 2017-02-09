@@ -51,7 +51,7 @@ namespace Labb2CSharp
 			public const int add_new_entry_btn = 2131034137;
 			
 			// aapt resource value: 0x7f050000
-			public const int all_entrys_list = 2131034112;
+			public const int all_entrys_list_lv = 2131034112;
 			
 			// aapt resource value: 0x7f050007
 			public const int create_report = 2131034119;

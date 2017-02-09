@@ -28,13 +28,13 @@ namespace Labb2CSharp
         EditText totalAmount;
         TextView exTaxTV;
         EditText dateET;
+        EditText descriptionEt;
         bool expenseEntry = true;
 
 
 
 
-        protected override void OnCreate(Bundle savedInstanceState)
-        {
+        protected override void OnCreate(Bundle savedInstanceState) {
             base.OnCreate(savedInstanceState);
             SetContentView(Resource.Layout.NewEntryLo);
 
@@ -49,6 +49,9 @@ namespace Labb2CSharp
             totalAmount = FindViewById<EditText>(Resource.Id.total_amount_edittext);
             exTaxTV = FindViewById<TextView>(Resource.Id.ex_tax_tv);
             dateET = FindViewById<EditText>(Resource.Id.date_edittext);
+            descriptionEt = FindViewById<EditText>(Resource.Id.description_edittext);
+
+
 
             //Setting up default spinners
             SetEntryModeToExpense();
@@ -71,8 +74,10 @@ namespace Labb2CSharp
             {
 
                 bk.addEntry(expenseEntry,
+                            dateET.Text,
+                            descriptionEt.Text,
+                            Convert.ToDouble(totalAmount),
                             (Account)spinnerType.SelectedItem,
-                            dateET.Text.ToString(),
                             (Account)spinnerToFromAccount.SelectedItem,
                             (TaxRate)spinnerTaxRate.SelectedItem);
 
@@ -84,49 +89,42 @@ namespace Labb2CSharp
 
         }
 
-        private void SetEntryModeToExpense()
-        {
+        private void SetEntryModeToExpense() {
+            expenseEntry = true;
             ArrayAdapter adapter = new ArrayAdapter(this, Android.Resource.Layout.SimpleSpinnerItem, bk.expenseAccounts);
             adapter.SetDropDownViewResource(Android.Resource.Layout.SimpleSpinnerDropDownItem);
             spinnerType.Adapter = adapter;
         }
 
-        private void SetEntryModeToIncome()
-        {
+        private void SetEntryModeToIncome() {
             expenseEntry = false;
             ArrayAdapter adapter = new ArrayAdapter(this, Android.Resource.Layout.SimpleSpinnerItem, bk.incomeAccounts);
             adapter.SetDropDownViewResource(Android.Resource.Layout.SimpleSpinnerDropDownItem);
             spinnerType.Adapter = adapter;
         }
 
-        private void SetAccountSpinner()
-        {
+        private void SetAccountSpinner() {
             ArrayAdapter adapter = new ArrayAdapter(this, Android.Resource.Layout.SimpleSpinnerItem, bk.moneyAccounts);
             adapter.SetDropDownViewResource(Android.Resource.Layout.SimpleSpinnerDropDownItem);
             spinnerToFromAccount.Adapter = adapter;
         }
 
-        private void SetTaxSpinner()
-        {
+        private void SetTaxSpinner() {
             ArrayAdapter adapter = new ArrayAdapter(this, Android.Resource.Layout.SimpleSpinnerItem, bk.taxRates);
             adapter.SetDropDownViewResource(Android.Resource.Layout.SimpleSpinnerDropDownItem);
             spinnerTaxRate.Adapter = adapter;
         }
 
-        private void TaxSelected(object sender, AdapterView.ItemSelectedEventArgs e)
-        {
+        private void TaxSelected(object sender, AdapterView.ItemSelectedEventArgs e) {
             Spinner s = (Spinner)sender;
-            if (!totalAmount.Text.Equals(""))
-            {
+            if(!totalAmount.Text.Equals("")) {
                 TaxRate currentTaxrate = bk.taxRates[s.SelectedItemPosition];
                 int intTotalAmountInclusiveTax = Int32.Parse(totalAmount.Text);
                 double doubleTotalAmountExclusiveTax = intTotalAmountInclusiveTax * currentTaxrate.Percent;
 
                 exTaxTV.Text = doubleTotalAmountExclusiveTax.ToString();
 
-            }
-            else
-            {
+            } else {
                 exTaxTV.Text = "-";
             }
 

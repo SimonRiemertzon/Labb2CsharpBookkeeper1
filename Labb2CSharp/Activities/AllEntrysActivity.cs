@@ -19,16 +19,16 @@ namespace Labb2CSharp
 
     public class AllEntrysActivity : Activity
     {
+        BooksKeeperManager bk = BooksKeeperManager.Instance;
         private ListView entryList;
 
 
-        protected override void OnCreate(Bundle savedInstanceState)
-        {
+        protected override void OnCreate(Bundle savedInstanceState) {
             base.OnCreate(savedInstanceState);
             SetContentView(Resource.Layout.AllEntrysLo);
 
-            entryList = FindViewById<ListView>(Resource.Id.all_entrys_list);
-            entryList.Adapter = new EntryAdapter(this, BooksKeeperManager.Instance.allEntries);
+            entryList = FindViewById<ListView>(Resource.Id.all_entrys_list_lv);
+            entryList.Adapter = new EntryAdapter(this, BooksKeeperManager.Instance.getAllEntrys());
         }
     }
 }

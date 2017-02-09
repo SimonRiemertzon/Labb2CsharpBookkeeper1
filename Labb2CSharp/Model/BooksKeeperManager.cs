@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using Java.Util;
 using SQLite;
 
@@ -14,6 +15,9 @@ namespace Labb2CSharp
         private double numberOfEntries = 0;
 
 
+        private static string pathToDB = System.Environment.GetFolderPath(Environment.SpecialFolder.Personal);
+
+
 
         public List<Entry> allEntries { get; private set; }
         public List<Account> incomeAccounts { get; private set; }
@@ -21,37 +25,45 @@ namespace Labb2CSharp
         public List<Account> moneyAccounts { get; private set; }
         public List<TaxRate> taxRates { get; private set; }
 
-        private BooksKeeperManager()
-        {
+        private BooksKeeperManager() {
+            SQLiteConnection db = new SQLiteConnection(pathToDB + @"\database.db");
+            //Implementing Database
+
+            db.CreateTable<TaxRate>();
+            db.CreateTable<Account>();
+            db.CreateTable<Entry>();
+
 
             //Income Accounts
-            Account a3000 = new Account(3000, "Försäljning");
-            Account a3040 = new Account(3040, "Försäljning av tjänster");
+            Account a3000 = new Account() { ID = 3000, Name = "Försäljning" };
+            Account a3040 = new Account { ID = 3040, Name = "Försäljning av tjänster" };
+            db.Insert(a3000);
+            db.Insert(a3040);
 
             //Expense Accounts
-            Account a4010 = new Account(4010, "Varuinköp");
-            Account a5010 = new Account(5010, "Lokalhyra");
+            Account a4010 = new Account { ID = 4010, Name = "Varuinköp" };
+            Account a5010 = new Account { ID = 5010, Name = "Lokalhyra" };
+            db.Insert(a4010);
+            db.Insert(a5010);
 
             //Asset Accounts
-            Account a1930 = new Account(1930, "Företagskonto/Checkräkningskonto");
-            Account a1250 = new Account(1250, "Datorer");
+            Account a1930 = new Account { ID = 1930, Name = "Företagskonto/Checkräkningskonto" };
+            Account a1250 = new Account { ID = 1250, Name = "DatorerID" };
+            db.Insert(a1930);
+            db.Insert(a1250);
 
             //Taxrates
-            TaxRate tr25 = new TaxRate(1, 0.25);
-            TaxRate tr12 = new TaxRate(2, 0.12);
-            TaxRate tr6 = new TaxRate(3, 0.06);
+            TaxRate tr25 = new TaxRate() { Percent = 0.25 };
+            TaxRate tr12 = new TaxRate() { Percent = 0.12 };
+            TaxRate tr6 = new TaxRate() { Percent = 0.06 };
+            db.Insert(tr25);
+            db.Insert(tr12);
+            db.Insert(tr6);
 
-            //Implementing lists
 
-            allEntries = new List<Entry> { };
-            incomeAccounts = new List<Account> { a3000, a3040 };
-            expenseAccounts = new List<Account> { a4010, a5010 };
-            moneyAccounts = new List<Account> { a1930, a1250 };
-            taxRates = new List<TaxRate> { tr25, tr12, tr6 };
+            //Closing the database
+            db.Close();
 
-            //Implementing Database
-            string pathToDB = System.Environment.GetFolderPath(Environment.SpecialFolder.Personal);
-            SQLiteConnection db = new SQLiteConnection(pathToDB + @"\database.db");
 
         }
 
@@ -60,8 +72,7 @@ namespace Labb2CSharp
         {
             get
             {
-                if (instance == null)
-                {
+                if(instance == null) {
                     instance = new BooksKeeperManager();
                 }
                 return instance;
@@ -70,32 +81,35 @@ namespace Labb2CSharp
 
 
 
-        //Entries (All entries made)
-        //IncomeAccounts
-        //ExpenseAccounts
-        //Taxrates (List made of diffrent taxrate doubles)
-        //AssetsAccount 1930
 
 
+        public void addEntry(bool expenseEntry, String date, String description, double totalAmount, Account typeOfEntry, Account toFromAccount, TaxRate tr) {
 
-        public void addEntry(bool expenseEntry,
-                             Account typeEntry,
-                             String date,
-                             Account toFromAccount,
-                             TaxRate tr)
-        {
-            numberOfEntries++;
-            Entry e = new Entry(numberOfEntries.ToString(),
-                                date,
-                                typeEntry,
-                                toFromAccount,
-                                tr);
-            allEntries.Add(e);
-            //Entry e = new Entry(string.Format("e{0}", numberOfEntries), );
-
-            //När jag skapar en händelse måste den läggas till listan av entrys! Detta måste skrivas innan min "Allentrys kommer funka"
+            Entry entry = new Entry {
+                ExpenseEntry = expenseEntry,
+                DateOfEntry = date,
+                Description = description,
+                TotalAmount = totalAmount,
+                TypeOfEntry = typeOfEntry,
+                ToOrFromAccount = toFromAccount,
+                EntryTaxRate = tr
+            };
+            SQLiteConnection db = new SQLiteConnection(pathToDB + @"\database.db");
+            db.Insert(entry);
+            db.Close();
 
         }
+
+        public List<Entry> getAllEntrys() {
+            SQLiteConnection db = new SQLiteConnection(pathToDB + @"\database.db");
+            List<Entry> entrys = db.Table<Entry>().ToList();
+            db.Close();
+            return entrys;
+
+
+        }
+
+
 
 
 

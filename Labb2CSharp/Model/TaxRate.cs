@@ -5,15 +5,9 @@ namespace Labb2CSharp
     public class TaxRate : Java.Lang.Object
     {
         [PrimaryKey, AutoIncrement]
-        public int Id { get; private set; }
+        public int ID { get; private set; }
         public double Percent { get; set; }
 
-
-        /* public TaxRate(int id, double tr)
-         {
-             this.id = id;
-             Percent = tr;
-         }*/
 
         public override string ToString()
         {
