@@ -2,7 +2,7 @@
 using SQLite;
 namespace Labb2CSharp
 {
-    public class Account : Java.Lang.Object
+    public class Account
     {
         [PrimaryKey]
         public int ID { get; set; }
@@ -13,10 +13,11 @@ namespace Labb2CSharp
 
 
 
-
         public override string ToString() {
-            return string.Format("{0} - {1}", Name, ID);
+            return string.Format("{1} - {0}", Name, ID);
         }
     }
 
 }
+
+

@@ -15,30 +15,44 @@ namespace Labb2CSharp
 
 
         private static string pathToDB = System.Environment.GetFolderPath(Environment.SpecialFolder.Personal);
+        private static string fullPath = pathToDB + @"\database.db";
 
 
-
-        public List<Entry> allEntries { get; private set; }
-        public List<Account> incomeAccounts { get; private set; }
-        public List<Account> expenseAccounts { get; private set; }
-        public List<Account> moneyAccounts { get; private set; }
-        public List<TaxRate> taxRates { get; private set; }
 
         private BooksKeeperManager() {
+
+            createTables();
+            addDataToDb();
+
+        }
+
+
+        public static BooksKeeperManager Instance {
+            get
+            {
+                if(instance == null) {
+                    instance = new BooksKeeperManager();
+                }
+                return instance;
+            }
+        }
+
+        public void createTables() {
             SQLiteConnection db = new SQLiteConnection(pathToDB + @"\database.db");
             //Implementing Database
 
             db.CreateTable<TaxRate>();
             db.CreateTable<Account>();
-
-
-
             db.CreateTable<Entry>();
+            db.Close();
+        }
 
+        private void addDataToDb() {
+            SQLiteConnection db = new SQLiteConnection(pathToDB + @"\database.db");
 
             //Income Accounts
             Account a3000 = new Account() { ID = 3000, Name = "Försäljning" };
-            Account a3040 = new Account { ID = 3040, Name = "Försäljning av tjänster" };
+            Account a3040 = new Account() { ID = 3040, Name = "Försäljning av tjänster" };
             db.Insert(a3000);
             db.Insert(a3040);
 
@@ -50,7 +64,7 @@ namespace Labb2CSharp
 
             //Asset Accounts
             Account a1930 = new Account { ID = 1930, Name = "Företagskonto/Checkräkningskonto" };
-            Account a1250 = new Account { ID = 1250, Name = "DatorerID" };
+            Account a1250 = new Account { ID = 1250, Name = "Datorer" };
             db.Insert(a1930);
             db.Insert(a1250);
 
@@ -65,36 +79,19 @@ namespace Labb2CSharp
 
             //Closing the database
             db.Close();
-
-
         }
 
 
-        public static BooksKeeperManager Instance
-        {
-            get
-            {
-                if(instance == null) {
-                    instance = new BooksKeeperManager();
-                }
-                return instance;
-            }
-        }
-
-
-
-
-
-        public void addEntry(bool expenseEntry, String date, String description, double totalAmount, Account typeOfEntry, Account toFromAccount, TaxRate tr) {
+        public void addEntry(bool expenseEntry, String date, String description, double totalAmount, int typeOfEntryID, int toFromAccountID, int tRID) {
 
             Entry entry = new Entry {
                 ExpenseEntry = expenseEntry,
                 DateOfEntry = date,
-                //   Description = description,
-                //  TotalAmount = totalAmount,
-                //TypeOfEntry = typeOfEntry,
-                // ToOrFromAccount = toFromAccount,
-                // EntryTaxRate = tr
+                Description = description,
+                TotalAmount = totalAmount,
+                TypeOfEntryID = typeOfEntryID,
+                ToOrFromAccountID = toFromAccountID,
+                EntryTaxRateID = tRID
 
             };
 
@@ -108,10 +105,28 @@ namespace Labb2CSharp
             SQLiteConnection db = new SQLiteConnection(pathToDB + @"\database.db");
             List<Entry> entrys = db.Table<Entry>().ToList();
             db.Close();
-            return entrys;
 
+            return entrys;
+        }
+
+
+        public List<Account> getListOfAccounts(int atleast, int max) {
+            SQLiteConnection db = new SQLiteConnection(fullPath);
+            var accounts = db.Table<Account>().Where(a => a.ID >= atleast & a.ID < max);
+
+            return accounts.ToList();
 
         }
+
+        public List<TaxRate> getTaxRate(int i, bool getAllTaxrates) {
+            SQLiteConnection db = new SQLiteConnection(fullPath);
+
+            var taxRates = (!getAllTaxrates) ? db.Table<TaxRate>().Take(i) : db.Table<TaxRate>().Take(3);
+
+            return taxRates.ToList();
+        }
+
+
 
 
 

@@ -54,7 +54,7 @@ namespace Labb2CSharp
 
             //Setting up default spinners
             SetEntryModeToExpense();
-            SetAccountSpinner();
+            SetMoneyAccountSpinner();
             SetTaxSpinner();
 
 
@@ -72,14 +72,14 @@ namespace Labb2CSharp
             addEntryBtn.Click += delegate
             {
 
-                bk.addEntry(expenseEntry,
-                            dateET.Text,
-                            descriptionEt.Text,
-                            Convert.ToDouble(totalAmount),
-                            (Account)spinnerType.SelectedItem,
-                            (Account)spinnerToFromAccount.SelectedItem,
-                            (TaxRate)spinnerTaxRate.SelectedItem);
-
+                /* bk.addEntry(expenseEntry,
+                             dateET.Text,
+                             descriptionEt.Text,
+                             Convert.ToDouble(totalAmount));
+                            // (Account)spinnerType.SelectedItem,
+                            // (Account)spinnerToFromAccount.SelectedItem,
+                            // (TaxRate)spinnerTaxRate.SelectedItem);
+                 */
             };
 
 
@@ -89,27 +89,28 @@ namespace Labb2CSharp
         }
 
         private void SetEntryModeToExpense() {
+
             expenseEntry = true;
-            ArrayAdapter adapter = new ArrayAdapter(this, Android.Resource.Layout.SimpleSpinnerItem, bk.expenseAccounts);
+            ArrayAdapter adapter = new ArrayAdapter(this, Android.Resource.Layout.SimpleSpinnerItem, bk.getListOfAccounts(4000, 8999));
             adapter.SetDropDownViewResource(Android.Resource.Layout.SimpleSpinnerDropDownItem);
             spinnerType.Adapter = adapter;
         }
 
         private void SetEntryModeToIncome() {
             expenseEntry = false;
-            ArrayAdapter adapter = new ArrayAdapter(this, Android.Resource.Layout.SimpleSpinnerItem, bk.incomeAccounts);
+            ArrayAdapter adapter = new ArrayAdapter(this, Android.Resource.Layout.SimpleSpinnerItem, bk.getListOfAccounts(3000, 3999));
             adapter.SetDropDownViewResource(Android.Resource.Layout.SimpleSpinnerDropDownItem);
             spinnerType.Adapter = adapter;
         }
 
-        private void SetAccountSpinner() {
-            ArrayAdapter adapter = new ArrayAdapter(this, Android.Resource.Layout.SimpleSpinnerItem, bk.moneyAccounts);
+        private void SetMoneyAccountSpinner() {
+            ArrayAdapter adapter = new ArrayAdapter(this, Android.Resource.Layout.SimpleSpinnerItem, bk.getListOfAccounts(1000, 1999));
             adapter.SetDropDownViewResource(Android.Resource.Layout.SimpleSpinnerDropDownItem);
             spinnerToFromAccount.Adapter = adapter;
         }
 
         private void SetTaxSpinner() {
-            ArrayAdapter adapter = new ArrayAdapter(this, Android.Resource.Layout.SimpleSpinnerItem, bk.taxRates);
+            ArrayAdapter adapter = new ArrayAdapter(this, Android.Resource.Layout.SimpleSpinnerItem, bk.getTaxRate(0, true));
             adapter.SetDropDownViewResource(Android.Resource.Layout.SimpleSpinnerDropDownItem);
             spinnerTaxRate.Adapter = adapter;
         }
@@ -117,9 +118,9 @@ namespace Labb2CSharp
         private void TaxSelected(object sender, AdapterView.ItemSelectedEventArgs e) {
             Spinner s = (Spinner)sender;
             if(!totalAmount.Text.Equals("")) {
-                TaxRate currentTaxrate = bk.taxRates[s.SelectedItemPosition];
+                var currentTaxRate = bk.getTaxRate(s.SelectedItemPosition, false);
                 int intTotalAmountInclusiveTax = Int32.Parse(totalAmount.Text);
-                double doubleTotalAmountExclusiveTax = intTotalAmountInclusiveTax * currentTaxrate.Percent;
+                double doubleTotalAmountExclusiveTax = intTotalAmountInclusiveTax * Int32.Parse(currentTaxRate[0].ToString());
 
                 exTaxTV.Text = doubleTotalAmountExclusiveTax.ToString();
 
@@ -130,6 +131,7 @@ namespace Labb2CSharp
 
 
         }
+
 
     }
 }

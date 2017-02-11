@@ -9,9 +9,8 @@ namespace Labb2CSharp
         public double Percent { get; set; }
 
 
-        public override string ToString()
-        {
-            return string.Format("{0}%", Percent * 100);
+        public override string ToString() {
+            return string.Format("{0}", Percent * 100);
         }
     }
 }
