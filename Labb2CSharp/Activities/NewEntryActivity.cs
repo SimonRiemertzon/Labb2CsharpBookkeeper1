@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Text.RegularExpressions;
 using Android.App;
 using Android.Content;
 using Android.OS;
@@ -118,9 +119,12 @@ namespace Labb2CSharp
         private void TaxSelected(object sender, AdapterView.ItemSelectedEventArgs e) {
             Spinner s = (Spinner)sender;
             if(!totalAmount.Text.Equals("")) {
-                var currentTaxRate = bk.getTaxRate(s.SelectedItemPosition, false);
+
+
+                string currentTaxRate = Regex.Match(s.SelectedItem.ToString(), @"\d+").Value;
+                double currentTaxRateDouble = Double.Parse(currentTaxRate) / 100;
                 int intTotalAmountInclusiveTax = Int32.Parse(totalAmount.Text);
-                double doubleTotalAmountExclusiveTax = intTotalAmountInclusiveTax * Int32.Parse(currentTaxRate[0].ToString());
+                double doubleTotalAmountExclusiveTax = intTotalAmountInclusiveTax - (intTotalAmountInclusiveTax * currentTaxRateDouble);
 
                 exTaxTV.Text = doubleTotalAmountExclusiveTax.ToString();
 
