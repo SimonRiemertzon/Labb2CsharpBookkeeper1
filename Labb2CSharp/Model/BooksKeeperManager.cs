@@ -51,20 +51,20 @@ namespace Labb2CSharp
             SQLiteConnection db = new SQLiteConnection(pathToDB + @"\database.db");
 
             //Income Accounts
-            Account a3000 = new Account() { ID = 3000, Name = "Försäljning" };
-            Account a3040 = new Account() { ID = 3040, Name = "Försäljning av tjänster" };
+            Account a3000 = new Account() { ID = 3000, Name = "Försäljning", TypeOfAccount = "Income" };
+            Account a3040 = new Account() { ID = 3040, Name = "Försäljning av tjänster", TypeOfAccount = "Income" };
             db.Insert(a3000);
             db.Insert(a3040);
 
             //Expense Accounts
-            Account a4010 = new Account { ID = 4010, Name = "Varuinköp" };
-            Account a5010 = new Account { ID = 5010, Name = "Lokalhyra" };
+            Account a4010 = new Account { ID = 4010, Name = "Varuinköp", TypeOfAccount = "Expense" };
+            Account a5010 = new Account { ID = 5010, Name = "Lokalhyra", TypeOfAccount = "Expense" };
             db.Insert(a4010);
             db.Insert(a5010);
 
             //Asset Accounts
-            Account a1930 = new Account { ID = 1930, Name = "Företagskonto/Checkräkningskonto" };
-            Account a1250 = new Account { ID = 1250, Name = "Datorer" };
+            Account a1930 = new Account { ID = 1930, Name = "Företagskonto/Checkräkningskonto", TypeOfAccount = "Assets" };
+            Account a1250 = new Account { ID = 1250, Name = "Datorer", TypeOfAccount = "Assets" };
             db.Insert(a1930);
             db.Insert(a1250);
 
@@ -82,16 +82,23 @@ namespace Labb2CSharp
         }
 
 
-        public void addEntry(bool expenseEntry, String date, String description, double totalAmount, int typeOfEntryID, int toFromAccountID, int tRID) {
+        public void addEntry(
+                             String date,
+                             String description,
+                             double totalAmount,
+                             int typeOfEntryID,
+                             string typeOfEntryName,
+                             int toFromAccountID,
+                             int taxRateID) {
 
             Entry entry = new Entry {
-                ExpenseEntry = expenseEntry,
                 DateOfEntry = date,
                 Description = description,
                 TotalAmount = totalAmount,
                 TypeOfEntryID = typeOfEntryID,
+                TypeOfEntryName = typeOfEntryName,
                 ToOrFromAccountID = toFromAccountID,
-                EntryTaxRateID = tRID
+                EntryTaxRateID = taxRateID
 
             };
 

@@ -22,8 +22,7 @@ namespace Labb2CSharp
 
 
 
-        public override int Count
-        {
+        public override int Count {
             get { return entrys.Count; }
         }
 
@@ -40,8 +39,7 @@ namespace Labb2CSharp
 
             view.FindViewById<TextView>(Resource.Id.entryID_tv).Text = "Händelse ID: " + entrys[position].EntryID;
             view.FindViewById<TextView>(Resource.Id.date_tv).Text = "Datum : " + entrys[position].DateOfEntry + "";
-            //view.FindViewById<TextView>(Resource.Id.typeAccounts_tv).Text = "Typ av händelse: " + entrys[position].TypeOfEntry;
-
+            view.FindViewById<TextView>(Resource.Id.typeAccounts_tv).Text = "Typ av händelse: " + entrys[position].TypeOfEntryID + " - " + entrys[position].TypeOfEntryName;
 
             return view;
 
