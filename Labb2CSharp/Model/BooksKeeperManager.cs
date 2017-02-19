@@ -22,7 +22,7 @@ namespace Labb2CSharp
         private BooksKeeperManager() {
 
             createTables();
-            addDataToDb();
+
 
         }
 
@@ -39,12 +39,20 @@ namespace Labb2CSharp
 
         public void createTables() {
             SQLiteConnection db = new SQLiteConnection(pathToDB + @"\database.db");
-            //Implementing Database
-
-            db.CreateTable<TaxRate>();
+            //Implementing Databas
             db.CreateTable<Account>();
+            db.CreateTable<TaxRate>();
             db.CreateTable<Entry>();
+
+
+            int tableCountSum = db.Table<Account>().Count() + db.Table<TaxRate>().Count();
             db.Close();
+
+            if(tableCountSum == 0) {
+                addDataToDb();
+            }
+
+
         }
 
         private void addDataToDb() {

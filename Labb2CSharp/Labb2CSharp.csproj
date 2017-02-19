@@ -69,7 +69,6 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\layout\Main.xml" />
     <AndroidResource Include="Resources\values\Strings.xml" />
     <AndroidResource Include="Resources\mipmap-hdpi\Icon.png" />
     <AndroidResource Include="Resources\mipmap-mdpi\Icon.png" />
@@ -79,11 +78,13 @@
     <AndroidResource Include="Resources\layout\NewEntryLo.axml" />
     <AndroidResource Include="Resources\layout\AllEntrysLo.axml" />
     <AndroidResource Include="Resources\layout\Entry_List_Item.axml" />
+    <AndroidResource Include="Resources\layout\Main.axml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Resources\drawable\" />
     <Folder Include="Model\" />
     <Folder Include="Activities\" />
+    <Folder Include="Scraps\" />
   </ItemGroup>
   <ItemGroup>
     <XamarinComponentReference Include="sqlite-net">
