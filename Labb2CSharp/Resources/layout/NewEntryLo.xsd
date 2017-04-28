@@ -1,0 +1,106 @@
+﻿<xs:schema id="NewDataSet" xmlns="" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:app1="http://schemas.android.com/apk/res/android" msdata:schemafragmentcount="2">
+	<xs:import namespace="http://schemas.android.com/apk/res/android" />
+	<xs:element name="RelativeLayout">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="LinearLayout" minOccurs="0" maxOccurs="unbounded">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="TextView" minOccurs="0" maxOccurs="unbounded">
+								<xs:complexType>
+									<xs:attribute ref="app1:layout_width" />
+									<xs:attribute ref="app1:layout_height" />
+									<xs:attribute ref="app1:text" />
+									<xs:attribute ref="app1:textSize" />
+									<xs:attribute ref="app1:layout_marginRight" />
+									<xs:attribute ref="app1:layout_marginLeft" />
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="Spinner" minOccurs="0" maxOccurs="unbounded">
+								<xs:complexType>
+									<xs:attribute ref="app1:id" />
+									<xs:attribute ref="app1:layout_width" />
+									<xs:attribute ref="app1:layout_height" />
+									<xs:attribute ref="app1:spinnerMode" />
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="EditText" minOccurs="0" maxOccurs="unbounded">
+								<xs:complexType>
+									<xs:attribute ref="app1:id" />
+									<xs:attribute ref="app1:layout_width" />
+									<xs:attribute ref="app1:layout_height" />
+									<xs:attribute ref="app1:hint" />
+									<xs:attribute ref="app1:inputType" />
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="RadioGroup" minOccurs="0" maxOccurs="unbounded">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="RadioButton" minOccurs="0" maxOccurs="unbounded">
+											<xs:complexType>
+												<xs:attribute ref="app1:layout_width" />
+												<xs:attribute ref="app1:layout_height" />
+												<xs:attribute ref="app1:checked" />
+												<xs:attribute ref="app1:text" />
+												<xs:attribute ref="app1:id" />
+											</xs:complexType>
+										</xs:element>
+									</xs:sequence>
+									<xs:attribute ref="app1:minWidth" />
+									<xs:attribute ref="app1:minHeight" />
+									<xs:attribute ref="app1:layout_width" />
+									<xs:attribute ref="app1:layout_height" />
+									<xs:attribute ref="app1:id" />
+								</xs:complexType>
+							</xs:element>
+						</xs:sequence>
+						<xs:attribute ref="app1:id" />
+						<xs:attribute ref="app1:orientation" />
+						<xs:attribute ref="app1:layout_width" />
+						<xs:attribute ref="app1:layout_height" />
+						<xs:attribute ref="app1:layout_alignParentTop" />
+						<xs:attribute ref="app1:layout_marginTop" />
+						<xs:attribute ref="app1:minWidth" />
+						<xs:attribute ref="app1:minHeight" />
+						<xs:attribute ref="app1:layout_below" />
+						<xs:attribute ref="app1:layout_marginLeft" />
+						<xs:attribute ref="app1:paddingTop" />
+					</xs:complexType>
+				</xs:element>
+			</xs:sequence>
+			<xs:attribute ref="app1:layout_width" />
+			<xs:attribute ref="app1:layout_height" />
+			<xs:attribute ref="app1:paddingRight" />
+			<xs:attribute ref="app1:paddingLeft" />
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="NewDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true">
+		<xs:complexType>
+			<xs:choice minOccurs="0" maxOccurs="unbounded">
+				<xs:element ref="RelativeLayout" />
+			</xs:choice>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>
+<xs:schema targetNamespace="http://schemas.android.com/apk/res/android" xmlns:mstns="http://schemas.android.com/apk/res/android" xmlns="http://schemas.android.com/apk/res/android" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" attributeFormDefault="qualified" elementFormDefault="qualified" xmlns:app1="http://schemas.android.com/apk/res/android">
+	<xs:attribute name="layout_width" msdata:Prefix="android" type="xs:string" />
+	<xs:attribute name="layout_height" msdata:Prefix="android" type="xs:string" />
+	<xs:attribute name="paddingRight" msdata:Prefix="android" type="xs:string" />
+	<xs:attribute name="paddingLeft" msdata:Prefix="android" type="xs:string" />
+	<xs:attribute name="id" msdata:Prefix="android" type="xs:string" />
+	<xs:attribute name="orientation" msdata:Prefix="android" type="xs:string" />
+	<xs:attribute name="layout_alignParentTop" msdata:Prefix="android" type="xs:string" />
+	<xs:attribute name="layout_marginTop" msdata:Prefix="android" type="xs:string" />
+	<xs:attribute name="minWidth" msdata:Prefix="android" type="xs:string" />
+	<xs:attribute name="minHeight" msdata:Prefix="android" type="xs:string" />
+	<xs:attribute name="layout_below" msdata:Prefix="android" type="xs:string" />
+	<xs:attribute name="layout_marginLeft" msdata:Prefix="android" type="xs:string" />
+	<xs:attribute name="paddingTop" msdata:Prefix="android" type="xs:string" />
+	<xs:attribute name="text" msdata:Prefix="android" type="xs:string" />
+	<xs:attribute name="textSize" msdata:Prefix="android" type="xs:string" />
+	<xs:attribute name="layout_marginRight" msdata:Prefix="android" type="xs:string" />
+	<xs:attribute name="spinnerMode" msdata:Prefix="android" type="xs:string" />
+	<xs:attribute name="hint" msdata:Prefix="android" type="xs:string" />
+	<xs:attribute name="inputType" msdata:Prefix="android" type="xs:string" />
+	<xs:attribute name="checked" msdata:Prefix="android" type="xs:string" />
+</xs:schema>

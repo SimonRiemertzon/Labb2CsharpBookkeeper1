@@ -10,20 +10,12 @@ namespace Labb2CSharp
 
     public class BooksKeeperManager
     {
-
         private static BooksKeeperManager instance;
-
-
         private static string pathToDB = System.Environment.GetFolderPath(Environment.SpecialFolder.Personal);
         private static string fullPath = pathToDB + @"\database.db";
 
-
-
         private BooksKeeperManager() {
-
             createTables();
-
-
         }
 
 
@@ -90,6 +82,7 @@ namespace Labb2CSharp
         }
 
 
+
         public void addEntry(
                              String date,
                              String description,
@@ -136,16 +129,28 @@ namespace Labb2CSharp
         public List<TaxRate> getTaxRate(int i, bool getAllTaxrates) {
             SQLiteConnection db = new SQLiteConnection(fullPath);
 
-            var taxRates = (!getAllTaxrates) ? db.Table<TaxRate>().Take(i) : db.Table<TaxRate>().Take(3);
+            var taxRates = getAllTaxrates ? db.Table<TaxRate>().Take(3) : db.Table<TaxRate>().Take(i);
 
             return taxRates.ToList();
         }
 
+        public string GetTaxReport() {
+            string consumptionTaxTable = "";
+            double sumTax = 0;
 
-
-
-
-
-
+            foreach(var entry in getAllEntrys()) {
+                if(new string[] { "Expense", "Income" }.Contains(entry.TypeOfEntryName)) {
+                    double thisTax = entry.TotalAmount * getTaxRate(entry.EntryTaxRateID, false)[0].Percent;
+                    consumptionTaxTable += string.Format(
+                        "{0} {1}: {2}\n",
+                        entry.Description,
+                        entry.TypeOfEntryName == "Expense" ? "Ingående" : "Utgående",
+                        thisTax);
+                    sumTax += entry.TypeOfEntryName == "Expense" ? thisTax : -thisTax;
+                }
+            }
+            consumptionTaxTable += string.Format("SUMMA: {0}", sumTax);
+            return consumptionTaxTable;
+        }
     }
 }

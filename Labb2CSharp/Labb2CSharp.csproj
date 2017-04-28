@@ -8,7 +8,7 @@
     <OutputType>Library</OutputType>
     <RootNamespace>Labb2CSharp</RootNamespace>
     <AssemblyName>Labb2CSharp</AssemblyName>
-    <TargetFrameworkVersion>v6.0</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v7.1</TargetFrameworkVersion>
     <AndroidApplication>True</AndroidApplication>
     <AndroidResgenFile>Resources\Resource.designer.cs</AndroidResgenFile>
     <AndroidResgenClass>Resource</AndroidResgenClass>
@@ -84,7 +84,6 @@
     <Folder Include="Resources\drawable\" />
     <Folder Include="Model\" />
     <Folder Include="Activities\" />
-    <Folder Include="Scraps\" />
   </ItemGroup>
   <ItemGroup>
     <XamarinComponentReference Include="sqlite-net">
